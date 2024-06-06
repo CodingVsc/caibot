@@ -1,0 +1,26 @@
+version: '3'
+services:
+  caibot:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=caibot_db
+      - DB_NAME=caibot
+      - DB_USER=postgres
+      - DB_PASS=1337
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      - caibot_db
+
+
+  caibot_db:
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: caibot
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1337
