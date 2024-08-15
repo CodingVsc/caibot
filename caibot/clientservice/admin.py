@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Client, Message
 
 
-admin.site.site_header = 'CAiBot'
+admin.site.site_header = 'GTrader'
 
 
 class ClientAdmin(admin.ModelAdmin):
